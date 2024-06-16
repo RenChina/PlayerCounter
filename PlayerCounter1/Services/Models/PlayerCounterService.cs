@@ -1,38 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using OpenMod.API.Ioc;
-using OpenMod.Unturned.Players;
 using PlayerCounter1.Services.API;
-using Serilog.Formatting.Json;
-using Steamworks;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using OpenMod.API.Ioc;
+using Steamworks;
 
 namespace PlayerCounter1.Services.Models;
 
 [PluginServiceImplementation(Lifetime = ServiceLifetime.Singleton)]
 public class PlayerCounterService : IPlayerCounter
 {
-    private int count = 0;
-
     private readonly Dictionary<CSteamID, int> _player = new Dictionary<CSteamID, int>();
-
-    public int killZombie
-    {
-        get
-        {
-            return count;
-        }
-
-        set
-        {
-            count = value;
-        }
-    }
 
     public Dictionary<CSteamID, int> Player => _player;
 
-    public int GetPlayer(CSteamID steamID)
+    public int getCounter(CSteamID steamID)
     {
         if (_player.TryGetValue(steamID, out var count))
         {
@@ -41,7 +22,7 @@ public class PlayerCounterService : IPlayerCounter
         return 0;
     }
 
-    public void addCounterPlayer(CSteamID steamID)
+    public void killCounterIncrease(CSteamID steamID)
     {
         if (_player.ContainsKey(steamID))
         {

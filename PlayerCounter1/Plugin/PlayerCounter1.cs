@@ -4,8 +4,6 @@ using OpenMod.API.Plugins;
 using OpenMod.Unturned.Plugins;
 using System;
 
-// For more, visit https://openmod.github.io/openmod-docs/devdoc/guides/getting-started.html
-
 [assembly: PluginMetadata("PlayerCounter1", DisplayName = "PlayerCounter1")]
 
 namespace PlayerCounter1.Plugin;

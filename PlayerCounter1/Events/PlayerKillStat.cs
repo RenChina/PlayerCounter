@@ -1,9 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using OpenMod.API.Eventing;
 using OpenMod.Core.Eventing;
-using OpenMod.Unturned.Players;
-using OpenMod.Unturned.Players.Stats.Events;
 using OpenMod.Unturned.Zombies.Events;
 using PlayerCounter1.Services.API;
 using System.Threading.Tasks;
@@ -15,12 +12,10 @@ public class PlayerKillStat(IPlayerCounter playerCounter) : IEventListener<Untur
 {
     public async Task HandleEventAsync(object? sender, UnturnedZombieDyingEvent @event)
     {
-
-        if (@event.Instigator is null)
-            return; 
+        if (@event.Instigator is null) return; 
             
         var steamPlayer = @event.Instigator.SteamId;
 
-        playerCounter.addCounterPlayer(steamPlayer);
+        playerCounter.killCounterIncrease(steamPlayer);
     }
 }
