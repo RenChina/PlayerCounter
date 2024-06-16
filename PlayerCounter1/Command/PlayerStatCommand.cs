@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
 using OpenMod.Core.Commands;
 using OpenMod.Unturned.Commands;
 using OpenMod.Unturned.Users;
@@ -12,13 +13,13 @@ namespace PlayerCounter1.Command;
 [CommandAlias("sz")]
 public sealed class PlayerStatCommand : UnturnedCommand
 {
-    private readonly IConfiguration m_configuration;
     private readonly IPlayerCounter m_playerCounter;
+    private readonly IStringLocalizer m_stringLocalizer;
 
-    public PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounter playerCounter, IConfiguration configuration) : base(serviceProvider)
+    public PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounter playerCounter, IStringLocalizer stringLocalizer) : base(serviceProvider)
     {
-        m_configuration = configuration;
         m_playerCounter = playerCounter;
+        m_stringLocalizer = stringLocalizer;
     }
 
     protected override async UniTask OnExecuteAsync()
@@ -26,7 +27,7 @@ public sealed class PlayerStatCommand : UnturnedCommand
         var user = (UnturnedUser)Context.Actor;
         var steamIdPlayer = user!.SteamId;
 
-        var changeableMessage = m_configuration["message_when_command"];
+        var changeableMessage = m_stringLocalizer["message_when_command"];
 
         await PrintAsync($"{changeableMessage}{m_playerCounter.GetCounter(steamIdPlayer)}"); 
     }
