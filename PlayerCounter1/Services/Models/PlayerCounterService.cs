@@ -7,13 +7,13 @@ using Steamworks;
 namespace PlayerCounter1.Services.Models;
 
 [PluginServiceImplementation(Lifetime = ServiceLifetime.Singleton)]
-public class PlayerCounterService : IPlayerCounter
+public sealed class PlayerCounterService : IPlayerCounter
 {
-    private readonly Dictionary<CSteamID, int> _player = new Dictionary<CSteamID, int>();
+    private readonly Dictionary<CSteamID, int> _player = new();
 
     public Dictionary<CSteamID, int> Player => _player;
 
-    public int getCounter(CSteamID steamID)
+    public int GetCounter(CSteamID steamID)
     {
         if (_player.TryGetValue(steamID, out var count))
         {
@@ -21,20 +21,16 @@ public class PlayerCounterService : IPlayerCounter
         }
         return 0;
     }
-
-    public void killCounterIncrease(CSteamID steamID)
+    
+    public void KillCounterIncrease(CSteamID steamID)
     {
         if (_player.ContainsKey(steamID))
         {
             _player[steamID]++;
         }
-        else
-        {
-            _player[steamID] = 1;
-        }
     }
 
-    public void nullWhenPlayerDiss(CSteamID steamID)
+    public void NullWhenPlayerDisconnected(CSteamID steamID)
     {
         if (_player.ContainsKey(steamID))
         {

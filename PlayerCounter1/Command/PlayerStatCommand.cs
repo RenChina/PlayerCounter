@@ -10,7 +10,7 @@ namespace PlayerCounter1.Command;
 
 [Command("statzom")]
 [CommandAlias("sz")]
-public class PlayerStatCommand : UnturnedCommand
+public sealed class PlayerStatCommand : UnturnedCommand
 {
     private readonly IConfiguration m_configuration;
     private readonly IPlayerCounter m_playerCounter;
@@ -28,6 +28,6 @@ public class PlayerStatCommand : UnturnedCommand
 
         var changeableMessage = m_configuration["message_when_command"];
 
-        await PrintAsync($"{changeableMessage}{m_playerCounter.getCounter(steamIdPlayer)}"); 
+        await PrintAsync($"{changeableMessage}{m_playerCounter.GetCounter(steamIdPlayer)}"); 
     }
 }

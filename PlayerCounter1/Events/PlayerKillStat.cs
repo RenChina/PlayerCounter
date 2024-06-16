@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace PlayerCounter1.Events;
 
 [EventListenerLifetime(ServiceLifetime.Singleton)]
-public class PlayerKillStat(IPlayerCounter playerCounter) : IEventListener<UnturnedZombieDyingEvent>
+public sealed class PlayerKillStat(IPlayerCounter playerCounter) : IEventListener<UnturnedZombieDyingEvent>
 {
     public async Task HandleEventAsync(object? sender, UnturnedZombieDyingEvent @event)
     {
         if (@event.Instigator is null) return; 
             
-        var steamPlayer = @event.Instigator.SteamId;
+        var steamPlayer = @event!.Instigator.SteamId;
 
-        playerCounter.killCounterIncrease(steamPlayer);
+        playerCounter.KillCounterIncrease(steamPlayer);
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using OpenMod.API.Ioc;
+﻿using OpenMod.API.Ioc;
 using Steamworks;
 
 namespace PlayerCounter1.Services.API;
@@ -7,11 +6,9 @@ namespace PlayerCounter1.Services.API;
 [Service]
 public interface IPlayerCounter
 {
-    Dictionary<CSteamID, int> Player { get;}
+    void KillCounterIncrease(CSteamID steamID);
 
-    void killCounterIncrease(CSteamID steamID);
+    int GetCounter(CSteamID steamID); 
 
-    int getCounter(CSteamID steamID); 
-
-    void nullWhenPlayerDiss(CSteamID steamID);  
+    void NullWhenPlayerDisconnected(CSteamID steamID);  
 }

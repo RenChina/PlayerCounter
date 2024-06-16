@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PlayerCounter1.Events;
 
-public class UserDisconnectedListener(IServiceProvider serviceProvider, IPlayerCounter playerCounter) : IEventListener<UnturnedPlayerDisconnectedEvent>
+public sealed class UserDisconnectedListener(IServiceProvider serviceProvider, IPlayerCounter playerCounter) : IEventListener<UnturnedPlayerDisconnectedEvent>
 {
     public Task HandleEventAsync(object? sender, UnturnedPlayerDisconnectedEvent @event)
     {
-        playerCounter.nullWhenPlayerDiss(@event.Player.SteamId); 
+        playerCounter.NullWhenPlayerDisconnected(@event!.Player.SteamId); 
 
         return Task.CompletedTask;
     }
