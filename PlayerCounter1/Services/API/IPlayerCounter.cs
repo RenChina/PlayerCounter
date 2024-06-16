@@ -1,4 +1,6 @@
 ﻿using OpenMod.API.Ioc;
+using OpenMod.Unturned.Players;
+using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,4 +13,10 @@ namespace PlayerCounter1.Services.API;
 public interface IPlayerCounter
 {
     int killZombie { get; set; }
+
+    Dictionary<CSteamID, int> Player { get;}
+
+    void addCounterPlayer (CSteamID steamID, int count);
+
+    bool GetPlayer(CSteamID steamID, int count); 
 }

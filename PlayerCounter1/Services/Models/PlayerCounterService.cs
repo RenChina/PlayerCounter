@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OpenMod.API.Ioc;
+using OpenMod.Unturned.Players;
 using PlayerCounter1.Services.API;
+using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +14,11 @@ public class PlayerCounterService : IPlayerCounter
 {
     private int count = 0;
 
+    private readonly Dictionary<CSteamID, int> _player = new Dictionary<CSteamID, int>();
+
     public int killZombie
     {
-       get
+        get
         {
             return count;
         }
@@ -25,4 +29,16 @@ public class PlayerCounterService : IPlayerCounter
         }
     }
 
+    public Dictionary<CSteamID, int> Player => _player;
+
+    public bool GetPlayer(CSteamID steamID, int count)
+    {
+        return _player.TryGetValue(steamID, out count);
+    }
+
+    public void addCounterPlayer(CSteamID steamID, int count)
+    {
+        _player[steamID] = count;
+    }
+    
 }
