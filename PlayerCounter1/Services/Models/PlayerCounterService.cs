@@ -9,13 +9,13 @@ namespace PlayerCounter1.Services.Models;
 [PluginServiceImplementation(Lifetime = ServiceLifetime.Singleton)]
 public sealed class PlayerCounterService : IPlayerCounter
 {
-    private readonly Dictionary<CSteamID, int> _player = new();
+    private readonly Dictionary<CSteamID, int> _playerCounters = new();
 
-    public Dictionary<CSteamID, int> Player => _player;
+    public Dictionary<CSteamID, int> PlayerCounters => _playerCounters;
 
     public int GetCounter(CSteamID steamID)
     {
-        if (_player.TryGetValue(steamID, out var count))
+        if (_playerCounters.TryGetValue(steamID, out var count))
         {
             return count;
         }
@@ -24,17 +24,17 @@ public sealed class PlayerCounterService : IPlayerCounter
     
     public void KillCounterIncrease(CSteamID steamID)
     {
-        if (_player.ContainsKey(steamID))
+        if (_playerCounters.ContainsKey(steamID))
         {
-            _player[steamID]++;
+            _playerCounters[steamID]++;
         }
     }
 
     public void NullWhenPlayerDisconnected(CSteamID steamID)
     {
-        if (_player.ContainsKey(steamID))
+        if (_playerCounters.ContainsKey(steamID))
         {
-            _player[steamID] = 0; 
+            _playerCounters[steamID] = 0; 
         }
     }
 }
