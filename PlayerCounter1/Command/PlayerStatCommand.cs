@@ -6,7 +6,6 @@ using OpenMod.Unturned.Users;
 using PlayerCounter1.Services.API;
 using System;
 
-
 namespace PlayerCounter1.Command;
 
 [Command("statzom")]

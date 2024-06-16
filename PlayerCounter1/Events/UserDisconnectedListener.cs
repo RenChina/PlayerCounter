@@ -8,7 +8,6 @@ namespace PlayerCounter1.Events;
 
 public class UserDisconnectedListener(IServiceProvider serviceProvider, IPlayerCounter playerCounter) : IEventListener<UnturnedPlayerDisconnectedEvent>
 {
-
     public Task HandleEventAsync(object? sender, UnturnedPlayerDisconnectedEvent @event)
     {
         playerCounter.nullWhenPlayerDiss(@event.Player.SteamId); 

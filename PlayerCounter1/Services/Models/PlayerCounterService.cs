@@ -34,7 +34,6 @@ public class PlayerCounterService : IPlayerCounter
         }
     }
 
-
     public void nullWhenPlayerDiss(CSteamID steamID)
     {
         if (_player.ContainsKey(steamID))
