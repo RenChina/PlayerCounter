@@ -16,6 +16,8 @@ public class PlayerCounterService : IPlayerCounter
 
     private readonly Dictionary<CSteamID, int> _player = new Dictionary<CSteamID, int>();
 
+    public Dictionary<CSteamID, int> Player => _player;
+   
     public int killZombie
     {
         get
@@ -29,9 +31,8 @@ public class PlayerCounterService : IPlayerCounter
         }
     }
 
-    public Dictionary<CSteamID, int> Player => _player;
 
-    public bool GetPlayer(CSteamID steamID, int count)
+    public bool GetPlayer(CSteamID steamID, out int count)
     {
         return _player.TryGetValue(steamID, out count);
     }

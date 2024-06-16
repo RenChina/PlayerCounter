@@ -18,5 +18,5 @@ public interface IPlayerCounter
 
     void addCounterPlayer (CSteamID steamID, int count);
 
-    bool GetPlayer(CSteamID steamID, int count); 
+    bool GetPlayer(CSteamID steamID, out int count); 
 }

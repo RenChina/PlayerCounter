@@ -22,9 +22,9 @@ public class PlayerKillStat(IPlayerCounter playerCounter) : IEventListener<Untur
         var steamPlayer = @event.Instigator.SteamId;
 
 
-        if (playerCounter.GetPlayer(steamPlayer, playerCounter.killZombie))
+        if (playerCounter.GetPlayer(steamPlayer, out int cout))
         {
-            playerCounter.addCounterPlayer(steamPlayer, playerCounter.killZombie + 1);
+            playerCounter.addCounterPlayer(steamPlayer, cout + 1);
         }
 
     }
