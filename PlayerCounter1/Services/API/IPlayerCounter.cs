@@ -16,7 +16,9 @@ public interface IPlayerCounter
 
     Dictionary<CSteamID, int> Player { get;}
 
-    void addCounterPlayer (CSteamID steamID, int count);
+    void addCounterPlayer (CSteamID steamID);
 
-    bool GetPlayer(CSteamID steamID, int count); 
+    int GetPlayer(CSteamID steamID); 
+
+    void nullWhenPlayerDiss(CSteamID steamID);  
 }

@@ -16,16 +16,11 @@ public class PlayerKillStat(IPlayerCounter playerCounter) : IEventListener<Untur
     public async Task HandleEventAsync(object? sender, UnturnedZombieDyingEvent @event)
     {
 
-        if (@event.Instigator == null || @event.Instigator is not UnturnedPlayer)
+        if (@event.Instigator is null)
             return; 
             
         var steamPlayer = @event.Instigator.SteamId;
 
-
-        if (playerCounter.GetPlayer(steamPlayer, playerCounter.killZombie))
-        {
-            playerCounter.addCounterPlayer(steamPlayer, playerCounter.killZombie + 1);
-        }
-
+        playerCounter.addCounterPlayer(steamPlayer);
     }
 }

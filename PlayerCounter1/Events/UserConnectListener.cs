@@ -14,7 +14,7 @@ public class UserConnectListener(IServiceProvider serviceProvider, IPlayerCounte
 
     public Task HandleEventAsync(object? sender, UnturnedPlayerDisconnectedEvent @event)
     {
-        playerCounter.killZombie = 0;
+        playerCounter.nullWhenPlayerDiss(@event.Player.SteamId); 
 
         return Task.CompletedTask;
     }

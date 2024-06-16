@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using OpenMod.Core.Commands;
 using OpenMod.Unturned.Commands;
+using OpenMod.Unturned.Users;
 using PlayerCounter1.Services.API;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ public class PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounter 
 {
     protected override async UniTask OnExecuteAsync()
     {
-        await PrintAsync($"ваша статистика: {playerCounter.killZombie}"); 
+        var user = (UnturnedUser)Context.Actor;
+        var steamIdPlayer = user!.SteamId;
+
+        await PrintAsync($"ваша статистика: {playerCounter.GetPlayer(steamIdPlayer)}"); 
     }
 }
