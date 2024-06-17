@@ -22,7 +22,7 @@ public sealed class PlayerCounterService : IPlayerCounter
         return 0;
     }
     
-    public void KillCounterIncrease(CSteamID steamID)
+    public void IncreaseKillCounter(CSteamID steamID)
     {
         if (_playerCounters.ContainsKey(steamID))
         {
@@ -30,7 +30,7 @@ public sealed class PlayerCounterService : IPlayerCounter
         }
     }
 
-    public void NullWhenPlayerDisconnected(CSteamID steamID)
+    public void ReturnNullWhenPlayerDisconnected(CSteamID steamID)
     {
         if (_playerCounters.ContainsKey(steamID))
         {

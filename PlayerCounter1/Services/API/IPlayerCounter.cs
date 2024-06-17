@@ -6,9 +6,9 @@ namespace PlayerCounter1.Services.API;
 [Service]
 public interface IPlayerCounter
 {
-    void KillCounterIncrease(CSteamID steamID);
+    void IncreaseKillCounter(CSteamID steamID);
 
     int GetCounter(CSteamID steamID); 
 
-    void NullWhenPlayerDisconnected(CSteamID steamID);  
+    void ReturnNullWhenPlayerDisconnected(CSteamID steamID);  
 }
