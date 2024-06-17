@@ -12,13 +12,13 @@ namespace PlayerCounter1.Command;
 [CommandAlias("sz")]
 public sealed class PlayerStatCommand : UnturnedCommand
 {
-    private readonly IPlayerCounterService m_playerCounter;
-    private readonly IStringLocalizer m_stringLocalizer;
+    private readonly IPlayerCounterService _playerCounter;
+    private readonly IStringLocalizer _stringLocalizer;
 
     public PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounterService playerCounter, IStringLocalizer stringLocalizer) : base(serviceProvider)
     {
-        m_playerCounter = playerCounter;
-        m_stringLocalizer = stringLocalizer;
+        _playerCounter = playerCounter;
+        _stringLocalizer = stringLocalizer;
     }
 
     protected override async UniTask OnExecuteAsync()
@@ -26,8 +26,8 @@ public sealed class PlayerStatCommand : UnturnedCommand
         var user = (UnturnedUser)Context.Actor;
         var steamIdPlayer = user!.SteamId;
 
-        var changeableMessage = m_stringLocalizer["message_when_command"];
+        var playerCounter = _playerCounter.GetCounter;
 
-        await PrintAsync($"{changeableMessage}{m_playerCounter.GetCounter(steamIdPlayer)}"); 
+        await PrintAsync(_stringLocalizer["message_when_command", new { counter = playerCounter }]);
     }
 }
