@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 using OpenMod.Core.Commands;
 using OpenMod.Unturned.Commands;
