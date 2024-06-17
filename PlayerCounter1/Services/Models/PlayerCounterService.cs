@@ -7,7 +7,7 @@ using Steamworks;
 namespace PlayerCounter1.Services.Models;
 
 [PluginServiceImplementation(Lifetime = ServiceLifetime.Singleton)]
-public sealed class PlayerCounterService : IPlayerCounter
+public sealed class PlayerCounterService : IPlayerCounterService
 {
     private readonly Dictionary<CSteamID, int> _playerCounters = new();
 

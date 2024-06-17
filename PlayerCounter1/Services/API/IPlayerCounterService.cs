@@ -4,7 +4,7 @@ using Steamworks;
 namespace PlayerCounter1.Services.API;
 
 [Service]
-public interface IPlayerCounter
+public interface IPlayerCounterService
 {
     void IncreaseKillCounter(CSteamID steamID);
 
