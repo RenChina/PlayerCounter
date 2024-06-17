@@ -8,7 +8,7 @@ using System;
 
 namespace PlayerCounter1.Plugin;
 
-public class MyOpenModPlugin : OpenModUnturnedPlugin
+public sealed class MyOpenModPlugin : OpenModUnturnedPlugin
 {
     private readonly ILogger<MyOpenModPlugin> m_logger;
 
