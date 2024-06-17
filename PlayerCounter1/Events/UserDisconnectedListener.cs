@@ -13,7 +13,7 @@ public sealed class UserDisconnectedListener(IServiceProvider serviceProvider, I
 {
     public Task HandleEventAsync(object? sender, UnturnedPlayerDisconnectedEvent @event)
     {
-        playerCounter.ReturnNullWhenPlayerDisconnected(@event!.Player.SteamId); 
+        playerCounter.ResetCounter(@event!.Player); 
 
         return Task.CompletedTask;
     }

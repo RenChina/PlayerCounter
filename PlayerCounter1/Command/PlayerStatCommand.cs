@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Localization;
 using OpenMod.Core.Commands;
 using OpenMod.Unturned.Commands;
+using OpenMod.Unturned.Players;
 using OpenMod.Unturned.Users;
 using PlayerCounter1.Services.API;
 using System;
@@ -23,10 +24,9 @@ public sealed class PlayerStatCommand : UnturnedCommand
 
     protected override async UniTask OnExecuteAsync()
     {
-        var user = (UnturnedUser)Context.Actor;
-        var steamIdPlayer = user!.SteamId;
+        var player = (UnturnedPlayer)Context.Actor;
 
-        var playerCounter = _playerCounter.GetCounter;
+        var playerCounter = _playerCounter.GetCounter(player);
 
         await PrintAsync(_stringLocalizer["message_when_command", new { counter = playerCounter }]);
     }

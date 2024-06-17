@@ -25,3 +25,4 @@ public sealed class MyOpenModPlugin : OpenModUnturnedPlugin
         return UniTask.CompletedTask;
     }
 }
+

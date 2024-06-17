@@ -1,4 +1,5 @@
 ﻿using OpenMod.API.Ioc;
+using OpenMod.Unturned.Players;
 using Steamworks;
 
 namespace PlayerCounter1.Services.API;
@@ -6,9 +7,9 @@ namespace PlayerCounter1.Services.API;
 [Service]
 public interface IPlayerCounterService
 {
-    void IncreaseKillCounter(CSteamID steamID);
+    void IncreaseKillCounter(UnturnedPlayer player);
 
-    int GetCounter(CSteamID steamID); 
+    int GetCounter(UnturnedPlayer player); 
 
-    void ReturnNullWhenPlayerDisconnected(CSteamID steamID);  
+    void ResetCounter(UnturnedPlayer player);  
 }

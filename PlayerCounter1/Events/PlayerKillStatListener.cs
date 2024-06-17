@@ -14,7 +14,7 @@ public sealed class PlayerKillStatListener(IPlayerCounterService playerCounter) 
     {
         if (@event.Instigator is null) return; 
             
-        var steamPlayer = @event!.Instigator.SteamId;
+        var steamPlayer = @event!.Instigator;
 
         playerCounter.IncreaseKillCounter(steamPlayer);
     }
