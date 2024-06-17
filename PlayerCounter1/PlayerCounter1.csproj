@@ -23,10 +23,6 @@
     <PackageReference Include="OpenMod.Unturned" Version="3.7.4+6bfe3e6f" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="config.yaml" />
-  </ItemGroup>
-
   <Target Name="ChangeAliasesOfNugetRefs" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
     <ItemGroup>
     </ItemGroup>
