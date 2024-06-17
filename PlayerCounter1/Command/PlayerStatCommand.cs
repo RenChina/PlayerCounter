@@ -12,10 +12,10 @@ namespace PlayerCounter1.Command;
 [CommandAlias("sz")]
 public sealed class PlayerStatCommand : UnturnedCommand
 {
-    private readonly IPlayerCounter m_playerCounter;
+    private readonly IPlayerCounterService m_playerCounter;
     private readonly IStringLocalizer m_stringLocalizer;
 
-    public PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounter playerCounter, IStringLocalizer stringLocalizer) : base(serviceProvider)
+    public PlayerStatCommand(IServiceProvider serviceProvider, IPlayerCounterService playerCounter, IStringLocalizer stringLocalizer) : base(serviceProvider)
     {
         m_playerCounter = playerCounter;
         m_stringLocalizer = stringLocalizer;

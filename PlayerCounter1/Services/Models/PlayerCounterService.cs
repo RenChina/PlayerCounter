@@ -11,8 +11,6 @@ public sealed class PlayerCounterService : IPlayerCounterService
 {
     private readonly Dictionary<CSteamID, int> _playerCounters = new();
 
-    public Dictionary<CSteamID, int> PlayerCounters => _playerCounters;
-
     public int GetCounter(CSteamID steamID)
     {
         if (_playerCounters.TryGetValue(steamID, out var count))
