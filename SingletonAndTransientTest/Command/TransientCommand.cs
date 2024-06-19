@@ -12,6 +12,6 @@ public sealed class TransientCommand(IServiceProvider serviceProvider, ITransien
     {
         var guid = transientService.GetGuid();
 
-        await PrintAsync($"Guid меняется при каждом заходе на сервер: {guid}");
+        await PrintAsync($"Guid меняется при каждом вызове: {guid}");
     }
 }
