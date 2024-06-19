@@ -4,6 +4,8 @@ VisualStudioVersion = 17.10.34814.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayerCounter1", "PlayerCounter1\PlayerCounter1.csproj", "{5629C696-C7B4-484D-97C4-F54BE632D3C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonAndTransientTest", "SingletonAndTransientTest\SingletonAndTransientTest.csproj", "{F4142B5E-F8D4-42B4-8139-A738D510F68A}"
+EndProject
 Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15BE1936-DD09-402B-B247-9B9F3692D75A}
@@ -13,6 +15,10 @@ Global
 		{5629C696-C7B4-484D-97C4-F54BE632D3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5629C696-C7B4-484D-97C4-F54BE632D3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5629C696-C7B4-484D-97C4-F54BE632D3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4142B5E-F8D4-42B4-8139-A738D510F68A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4142B5E-F8D4-42B4-8139-A738D510F68A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4142B5E-F8D4-42B4-8139-A738D510F68A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4142B5E-F8D4-42B4-8139-A738D510F68A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
